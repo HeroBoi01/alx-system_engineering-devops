@@ -1,2 +1,2 @@
 #!/bin/bash
-user=`whoami`; cd `grep -Eo "^$user:" /etc/passwd | grep -Eo ^[^:]+`
+grep -Eo "^$(whoami):" /etc/passwd | grep -Eo "^[^:]+" | xargs cd
