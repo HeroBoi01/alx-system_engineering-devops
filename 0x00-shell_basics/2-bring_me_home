@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -Eo "^$(whoami):" /etc/passwd | grep -Eo "^[^:]+" | xargs cd
+IFS=: read -r _ home _ < <(grep "^$(whoami):" /etc/passwd); cd "$home"
