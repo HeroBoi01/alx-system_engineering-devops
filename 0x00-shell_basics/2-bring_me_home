@@ -1,2 +1,2 @@
 #!/bin/bash
-IFS=: read -r _ home _ <<< $(grep "^$(whoami):" /etc/passwd); cd "$home"
+IFS=: read -r _ home _ <<< $(grep "^$(whoami):" /etc/passwd) && cd "$home"
