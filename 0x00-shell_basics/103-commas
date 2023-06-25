@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" ./* | awk -F '/' '{ if ($NF == "" || $NF == ".") printf "%s", $0; else printf "%s/, ", $0 } END { printf "\n" }'
+printf "%s\n" ./* | awk 'BEGIN {ORS = ", "} {print}' | sed 's/,$/\n/'
