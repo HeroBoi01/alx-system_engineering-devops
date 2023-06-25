@@ -1,3 +1,2 @@
 #!/bin/bash
 ls -A1 | awk '{if($0~/^[[:alnum:]]/){if($0~/\/$/){printf "%s, ", $0}else{printf "%s, ", $0}}}' | sort -V | awk 'BEGIN{ORS=""}1' | sed 's/, $/\n/'
-
