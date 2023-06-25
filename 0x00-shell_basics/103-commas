@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -name '[[:alnum:]]*' -printf "%f\n" | sort -d --ignore-case | awk '{ORS = (NR == 1) ? ", " : ($0 == "." || $0 == "..") ? ", " : (/\/$/) ? ", " : "/"} 1' | awk '{ORS = (/,$/) ? "\n" : ", "} 1'
+find . -maxdepth 1 -printf "%f, " | sed 's/^\.\//.\//' | awk 'BEGIN{ORS=""; FS="/"} {if ($1=="." || $1=="..") {print $1", "}; if (NF>1) {print $1"/, "}; if (NF>0) {print $NF", "}}'
