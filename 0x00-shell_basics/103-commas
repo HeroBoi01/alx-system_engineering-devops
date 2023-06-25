@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ap|awk 'BEGIN{ORS=FS=""}{if($0~/\/$/){print $0", "}else{if($0!~/^\.(\.\/)?$/){print $0", "}}}'|sort -V|sed 's/, $/\n/'
+ls -ap | awk 'BEGIN{ORS=""; print "./, ../,"} /^[[:alnum:]]/{if(/\/$/){print $0"/, "}else{print $0", "}}' | sed 's/, $/\n/'
