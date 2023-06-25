@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" ./* .[!.]* | awk 'BEGIN {ORS = ", "} {if ($0 != "./" && $0 != "../") print} END {print "\b\b\n"}'
+{ printf "%s\n" ./* .[!.]*; echo; } | awk 'BEGIN {ORS = ", "} {if ($0 != "./" && $0 != "../") print} END {print "\b\b\n"}'
