@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s" "./, ../, "; ls -ap | awk '{ if ($0 ~ /\/$/) printf "%s%s", $0, ", "; else if ($0 !~ /^\.\.\/$/ && $0 !~ /^\.\//) printf "%s%s", $0, ", " }' | sed 's/, $/\n/'
+find . -maxdepth 1 -name '[[:alnum:]]*' -printf "%f\n" | sort -d --ignore-case | awk '{ORS = (NR == 1) ? ", " : ($0 == "." || $0 == "..") ? ", " : (/\/$/) ? ", " : "/"} 1' | sed 's/, $/\n/'
