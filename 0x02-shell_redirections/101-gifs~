@@ -1,0 +1,1 @@
+find . -type f -iname "*.gif" -printf "%f\n" | sed -e 's/\.gif$//' | sort -f
