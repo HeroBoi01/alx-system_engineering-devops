@@ -1,0 +1,9 @@
+#!/bin/bash
+for ((i=97; i<=122; i++)); do
+    for ((j=97; j<=122; j++)); do
+        combination=$(printf "%c%c" $i $j)
+        if [[ $combination != "oo" ]]; then
+            echo $combination
+        fi
+    done
+done
