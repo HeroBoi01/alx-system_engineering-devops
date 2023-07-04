@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e 'school\n'
+echo -e 'school '
