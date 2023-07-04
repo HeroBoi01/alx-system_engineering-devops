@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir my_dir 2>/dev/null | chmod 751 my_dir 2>/dev/null | ls -ld my_dir | awk '{print $1}'
+mkdir my_dir 2>/dev/null; chmod 751 my_dir 2>/dev/null; ls -ld my_dir | awk '{print substr($1, 0, 11)}'
